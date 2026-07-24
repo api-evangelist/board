@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: https://board.fun/.well-known/openid-configuration
+notes: >-
+  OAuth/OIDC scopes advertised by Board's Shopify Customer Account authorization
+  server. The customer-account-mcp-api:full scope gates the UCP agent-commerce
+  MCP surface.
+schemes:
+- name: ShopifyCustomerAccountOIDC
+  source: https://board.fun/.well-known/openid-configuration
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://account.board.fun/authentication/oauth/authorize
+    tokenUrl: https://account.board.fun/authentication/oauth/token
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; issue an ID token for the customer.
+  flows:
+  - authorizationCode
+- scope: email
+  description: Access the customer's email address and verification status.
+  flows:
+  - authorizationCode
+- scope: customer-account-api:full
+  description: Full access to the Shopify Customer Account API on behalf of the buyer.
+  flows:
+  - authorizationCode
+- scope: customer-account-mcp-api:full
+  description: Full access to the customer-account MCP API surface (agent-driven commerce via UCP).
+  flows:
+  - authorizationCode

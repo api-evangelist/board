@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: live probe of https://board.fun/.well-known/*
+host: https://board.fun
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: board-openid-configuration.json
+  note: Shopify Customer Account OIDC discovery (issuer shopify.com/authentication/93388013858)
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: board-oauth-authorization-server.json
+  note: RFC 8414 authorization server metadata (identical payload to openid-configuration)
+- path: /.well-known/ucp
+  status: 200
+  file: board-ucp.json
+  note: Universal Commerce Protocol merchant profile (UCP 2026-04-08) - services, capabilities, payment handlers
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404

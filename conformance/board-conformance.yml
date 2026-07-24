@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://board.fun/.well-known/openid-configuration, https://board.fun/.well-known/ucp
+standards:
+- id: oidc
+  conforms: true
+  evidence: Live OpenID Connect discovery document at /.well-known/openid-configuration (Shopify Customer Accounts).
+- id: oauth2
+  conforms: true
+  evidence: RFC 8414 authorization-server metadata at /.well-known/oauth-authorization-server; authorizationCode + refresh_token grants.
+- id: rfc8414-oauth-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns issuer/token/authorization endpoints.
+- id: pkce-s256
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256.
+- id: ucp-2026-04-08
+  conforms: true
+  evidence: /.well-known/ucp advertises Universal Commerce Protocol 2026-04-08 with shopping services, checkout/cart/fulfillment/discount/order capabilities.
+- id: mcp
+  conforms: true
+  evidence: UCP shopping service exposes an MCP transport endpoint at /api/ucp/mcp.
+- id: rfc9457-problem-details
+  conforms: false
+- id: fhir-r4
+  conforms: false
+- id: fapi
+  conforms: false

@@ -1,8 +1,15 @@
 aid: board
 name: Board
-description: Board is a company surfaced as a portfolio company of union-square-ventures and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Board (board.fun) is a maker of turn-based strategy board games sold direct-to-consumer
+  through a Shopify storefront - its debut title, Thrasos, is a game in which players compete
+  as Greek gods for control of ancient Greece by blessing and cursing cities to build influence.
+  Board was surfaced as a portfolio company of Union Square Ventures and added to the API
+  Evangelist network. Although Board ships no bespoke developer API, its store exposes a full,
+  live agent-commerce surface via Shopify's Universal Commerce Protocol (UCP): a hosted MCP
+  endpoint, OpenID Connect customer accounts, published /llms.txt and /agents.md agent
+  instructions, and Shop Pay / card payment handlers - enabling AI shopping agents to discover,
+  cart, and (with human approval) purchase products.
 url: https://raw.githubusercontent.com/api-evangelist/board/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,12 +17,51 @@ x-backed-by:
 - union-square-ventures
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://board.fun/cdn/shop/files/flipbook_001.png
 tags:
 - Company
-apis: []
+- Commerce
+- E-Commerce
+- Board Games
+- Agent Commerce
+- Universal Commerce Protocol
+- Shopify
+- MCP
+apis:
+- name: Board Agent Commerce (UCP)
+  description: >-
+    Board's storefront agent-commerce API, provided natively by Shopify via the Universal
+    Commerce Protocol (UCP 2026-04-08). Exposes an MCP endpoint for AI agents to search the
+    catalog, build carts, and run buyer-approved checkout, plus OIDC customer authentication
+    and read-only product/collection JSON endpoints.
+  humanURL: https://board.fun
+  baseURL: https://board.fun/api/ucp/mcp
+  properties:
+  - type: MCPServer
+    url: mcp/board-mcp.yml
+  - type: WellKnown
+    url: well-known/board-well-known.yml
+  - type: Authentication
+    url: authentication/board-authentication.yml
+  - type: OAuthScopes
+    url: scopes/board-scopes.yml
+  - type: LLMsTxt
+    url: llms/board-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -24,3 +70,32 @@ maintainers:
 common:
 - type: Website
   url: https://board.fun
+- type: MCPServer
+  url: mcp/board-mcp.yml
+- type: WellKnown
+  url: well-known/board-well-known.yml
+- type: LLMsTxt
+  url: llms/board-llms.txt
+- type: Authentication
+  url: authentication/board-authentication.yml
+- type: OAuthScopes
+  url: scopes/board-scopes.yml
+- type: Conventions
+  url: conventions/board-conventions.yml
+- type: Conformance
+  url: conformance/board-conformance.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DomainSecurity
+  url: security/board-domain-security.yml
+- type: Login
+  url: https://account.board.fun
+- type: PrivacyPolicy
+  url: https://board.fun/policies/privacy-policy
+- type: TermsOfService
+  url: https://board.fun/policies/terms-of-service
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

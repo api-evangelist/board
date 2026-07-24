@@ -1,0 +1,18 @@
+generated: '2026-07-18'
+method: searched
+source: https://board.fun/agents.md
+skills:
+- file: board-agents.md
+  name: Board agent-commerce instructions (agents.md)
+  api: https://board.fun/api/ucp/mcp
+  description: >-
+    Provider-published, verbatim agent instructions for Board's Shopify store.
+    Covers the UCP agent flow (discover, search, cart, checkout, fulfill,
+    complete), the Shop skill recommendation, read-only browsing endpoints, and
+    the human-approval-on-payment invariant.
+  operations:
+  - search_catalog
+  - create_cart
+  - create_checkout
+  - update_checkout
+  - complete_checkout
