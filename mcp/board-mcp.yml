@@ -2,11 +2,9 @@ generated: '2026-07-18'
 method: searched
 status: published
 source: https://board.fun/.well-known/ucp
-notes: >-
-  Board exposes a live agent-commerce MCP server via Shopify's Universal Commerce
-  Protocol (UCP). The MCP endpoint is advertised in /.well-known/ucp and in
-  /llms.txt. Discovery requires a UCP agent profile URI; checkout requires
-  contemporaneous human buyer approval. This is a Shopify-platform-provided
+notes: Board exposes a live agent-commerce MCP server via Shopify's Universal Commerce Protocol (UCP).
+  The MCP endpoint is advertised in /.well-known/ucp and in /llms.txt. Discovery requires a UCP agent
+  profile URI; checkout requires contemporaneous human buyer approval. This is a Shopify-platform-provided
   surface bound to the board.fun store, not a bespoke first-party server.
 server:
   name: board-ucp-shopping
@@ -40,3 +38,11 @@ rules:
 - Checkout requires human approval; agents must not complete payment without explicit buyer consent.
 - The MCP endpoint is rate-limited per IP; back off on 429 responses.
 - Pass context.address_country and context.currency for accurate pricing and availability.
+deployment:
+  mode: remote
+  endpoint: https://board.fun/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
