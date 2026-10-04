@@ -82,6 +82,9 @@ apis:
     url: scopes/board-scopes.yml
   - type: LLMsTxt
     url: llms/board-llms.txt
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: ucp
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
